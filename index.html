@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>QuickFix Mobile — Phone & Tablet Repair</title>
+  <!-- tab icon logo -->
+  <link rel="icon" href="images/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:#0d1117;
+      --panel:#111827;
+      --muted:#9aa4b2;
+      --brand:#3b82f6;
+      --brand2:#7c3aed;
+      --text:#e5e7eb;
+      --radius:18px;
+      --shadow:0 10px 30px rgba(0,0,0,.35)
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Manrope,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      color:var(--text);
+      background:linear-gradient(180deg,#0b1220 0%, #0d1117 100%)
+    }
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{max-width:1150px;margin-inline:auto;padding:0 20px}
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:50;
+      backdrop-filter:saturate(140%) blur(8px);
+      background:rgba(13,17,23,.6);
+      border-bottom:1px solid #1f2937
+    }
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      min-height:68px;
+      flex-wrap:wrap
+    }
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:800;
+      letter-spacing:.2px;
+    }
+    .nav-cta{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      border:1px solid #1f2937;
+      background:#0f172a;
+      padding:12px 16px;
+      border-radius:12px;
+      transition:.2s transform,.2s box-shadow;
+      font-weight:600
+    }
+    .btn:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(59,130,246,.25)}
+    .btn.primary{background:linear-gradient(135deg,var(--brand),var(--brand2));border-color:transparent}
+
+    .hero{padding:72px 0 24px}
+    .hero-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:32px}
+    .tag{
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      background:rgba(59,130,246,.12);
+      color:#cfe1ff;
+      border:1px solid rgba(59,130,246,.25);
+      padding:8px 12px;
+      border-radius:999px;
+      font-weight:600
+    }
+    h1{font-size:clamp(28px,3.4vw,54px);line-height:1.05;margin:16px 0}
+    .lead{color:var(--muted);font-size:clamp(16px,1.4vw,20px)}
+    .hero-card{
+      background:linear-gradient(180deg,#0f172a 0%,#0b1020 100%);
+      border:1px solid #1f2937;
+      border-radius:var(--radius);
+      padding:18px;
+      box-shadow:var(--shadow)
+    }
+
+    section{padding:64px 0}
+    .sec-h{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:22px}
+    h2{font-size:clamp(22px,2.2vw,32px);margin:0}
+    .grid{display:grid;gap:16px}
+    .services{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+    .card{background:#0f172a;border:1px solid #1f2937;border-radius:16px;padding:18px;box-shadow:var(--shadow)}
+    .card h3{margin:10px 0 6px;font-size:18px}
+    .price{margin-top:8px;color:#93c5fd;font-weight:700}
+
+    /* BEFORE/AFTER */
+    .ba{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .ba .item{display:grid;grid-template-rows:auto 38px;gap:10px}
+    .ba .view{position:relative;border-radius:16px;overflow:hidden;border:1px solid #1f2937;background:#0b1220;aspect-ratio:16/10}
+    .ba .view img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+    .ba .caption{position:absolute;left:10px;bottom:10px;background:rgba(0,0,0,.55);padding:6px 10px;border-radius:999px;font-weight:700}
+    .ba .slider{appearance:none;height:10px;background:rgba(255,255,255,.2);border-radius:999px;outline:none;border:1px solid #1f2937}
+    .ba .slider::-webkit-slider-thumb{appearance:none;width:18px;height:18px;border-radius:50%;background:#60a5fa;border:2px solid #1f2937}
+    .ba .slider::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:#60a5fa;border:2px solid #1f2937}
+
+    footer{border-top:1px solid #1f2937;padding:28px 0;color:var(--muted)}
+    .foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px}
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px;
+    }
+
+    /* Responsive fixes */
+    @media (max-width: 600px) {
+      header .nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+      }
+      header .logo {
+        justify-content: center;
+        width: 100%;
+      }
+      header .logo img {
+        width: 40px;
+        height: 40px;
+      }
+      header .nav-cta {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+      .ba {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="container nav">
+      <a class="logo" href="#home" aria-label="QuickFix Mobile Home">
+        <img src="favicon.ico" alt="QuickFix Mobile Logo" style="width:60px; height:60px;">
+        <span>QuickFix<span style="opacity:.7"> Mobile</span></span>
+      </a>
+      <nav class="nav-cta">
+        <a class="btn" href="#services">Services</a>
+        <a class="btn" href="#gallery">Work</a>
+        <a class="btn" href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main id="home" class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="tag">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+          </svg>
+          Same-day repairs • Independent Technician
+        </span>
+        <h1>Cracked screen? Dead battery? <br/>We fix phones <em>fast</em>.</h1>
+        <p class="lead">Independent technician with 5+ years experience. iPhone, Samsung, Google & more. Mobile service available — we can come to you.</p>
+        <div class="badges">
+          <span class="badge">Screen & glass</span>
+          <span class="badge">Battery & charging</span>
+          <span class="badge">Back glass</span>
+          <span class="badge">Cameras</span>
+          <span class="badge">Water damage</span>
+        </div>
+      </div>
+      <div class="hero-card" style="padding:0; border:4px solid #cfe1ff; border-radius:18px; overflow:hidden; display:flex; align-items:center; justify-content:center;">
+        <img src="images/holdingphone.PNG" alt="Phone with cracked screen" style="width:100%; height:auto; display:block;"/>
+      </div>
+    </div>
+  </main>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="container">
+      <div class="sec-h">
+        <h2>Services & starting prices</h2>
+        <span class="lead">Message us for exact pricing by model</span>
+      </div>
+      <div class="grid services">
+        <article class="card"><h3>Screen replacement</h3><p>OEM-quality glass & OLED/LCD. Lifetime defect warranty.</p><div class="price">from $89</div></article>
+        <article class="card"><h3>Battery swap</h3><p>High-cycle batteries. Calibration included.</p><div class="price">from $59</div></article>
+        <article class="card"><h3>Charging port & speakers</h3><p>Cleaning, repair, or full port replacement.</p><div class="price">from $49</div></article>
+        <article class="card"><h3>Back glass & camera</h3><p>Laser-assisted back glass. Lens & module repair.</p><div class="price">from $79</div></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- BEFORE & AFTER -->
+  <section id="gallery">
+    <div class="container">
+      <div class="sec-h">
+        <h2>Before & After</h2>
+        <span class="lead">Swipe to compare real repairs</span>
+      </div>
+      <div class="ba">
+        <div class="item">
+          <div class="view" data-ba>
+            <img src="images/before.PNG" alt="Before: cracked screen"/>
+            <img class="after" src="images/after.PNG" alt="After: new screen"/>
+            <span class="caption">iPhone 12 • Screen</span>
+          </div>
+          <input class="slider" type="range" min="0" max="100" value="50" aria-label="Before/after slider for iPhone 12"/>
+        </div>
+        <div class="item">
+          <div class="view" data-ba>
+            <img src="images/before.PNG" alt="Before: broken back glass"/>
+            <img class="after" src="images/after.PNG" alt="After: replaced back glass"/>
+            <span class="caption">Samsung S21 • Back glass</span>
+          </div>
+          <input class="slider" type="range" min="0" max="100" value="50" aria-label="Before/after slider for Samsung S21"/>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="sec-h"><h2>Contact</h2><span class="lead">Message for a quick quote & repair time</span></div>
+      <div class="card" style="padding:0">
+        <div class="grid" style="grid-template-columns:1fr 1fr; gap:0">
+          <div style="padding:18px 18px 22px; border-right:1px solid #1f2937">
+            <h3>Reach us</h3>
+            <p>Fast responses during business hours.</p>
+            <div class="actions">
+              <a class="btn primary" href="tel:+15551234567">Call</a>
+              <a class="btn" href="sms:+15551234567?body=Hi%2C%20I%20need%20a%20repair">Text</a>
+              <a class="btn" href="mailto:hello@quickfix.example.com">Email</a>
+            </div>
+          </div>
+          <div style="padding:18px 18px 12px">
+            <h3>Visit or We-Come-To-You</h3>
+            <p>123 Main St, Your City, AZ</p>
+            <p><strong>Call:</strong> <a href="tel:+15551234567">(555) 123-4567</a><br>
+               <strong>Email:</strong> <a href="mailto:hello@quickfix.example.com">hello@quickfix.example.com</a></p>
+            <div style="height:240px;border-radius:12px; overflow:hidden; border:1px solid #1f2937; background:#0b1220">
+              <iframe title="Map to our location" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1396.496864284829!2d-112.22383728936687!3d33.64555158817706!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x872b683c91b6cd53%3A0x3299ddde621ab0d4!2sHidden%20Meadows%20Park!5e0!3m2!1sen!2sus!4v1754701522175!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container foot">
+      <div>© <span id="year"></span> QuickFix Mobile • Independent Technician</div>
+      <div style="display:flex; gap:12px">
+        <a href="#services">Services</a>
+        <span aria-hidden>•</span>
+        <a href="#gallery">Work</a>
+        <span aria-hidden>•</span>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.querySelectorAll('.ba .item').forEach((item)=>{
+      const view = item.querySelector('[data-ba]');
+      const before = view.querySelector('img');
+      const after = view.querySelector('img.after');
+      const slider = item.querySelector('input.slider');
+      after.style.clipPath = 'inset(0 50% 0 0)';
+      slider.addEventListener('input', (e)=>{
+        const v = e.target.value;
+        after.style.clipPath = `inset(0 ${100 - v}% 0 0)`;
+      });
+    });
+  </script>
+</body>
+</html>
