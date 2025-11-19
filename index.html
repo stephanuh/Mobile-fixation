@@ -84,7 +84,7 @@
     .ba{display:grid;grid-template-columns:1fr 1fr;gap:18px}
     .ba .item{display:grid;grid-template-rows:auto 38px;gap:10px}
     .ba .view{position:relative;border-radius:16px;overflow:hidden;border:1px solid #1f2937;background:#0b1220;aspect-ratio:16/10}
-    .ba .view img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+    .ba .view img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover; object-position: center;}
     .ba .view img.before{clip-path:inset(0 50% 0 0)}
     .ba .caption{position:absolute;left:10px;bottom:10px;background:rgba(0,0,0,.55);padding:6px 10px;border-radius:999px;font-weight:700}
     .ba .slider{appearance:none;height:10px;background:rgba(255,255,255,.2);border-radius:999px;outline:none;border:1px solid #1f2937}
@@ -190,18 +190,18 @@
         <!-- Item 1 -->
         <div class="item">
           <div class="view" data-ba>
-            <img src="images/after.PNG" alt="After: new screen"/>
-            <img class="before" src="images/before.PNG" alt="Before: cracked screen"/>
-            <span class="caption">iPhone 12 • Screen</span>
+            <img src="images/Fixedfrontiphone16promax.jpg" alt="After: new screen"/>
+            <img class="before" src="images/Brokenfrontiphone16promax.jpg" alt="Before: cracked screen"/>
+            <span class="caption">iPhone 16 Pro Max • Screen</span>
           </div>
           <input class="slider" type="range" min="0" max="100" value="50" aria-label="Before/after slider for iPhone 12"/>
         </div>
         <!-- Item 2 -->
         <div class="item">
           <div class="view" data-ba>
-            <img src="images/after.PNG" alt="After: replaced back glass"/>
-            <img class="before" src="images/before.PNG" alt="Before: broken back glass"/>
-            <span class="caption">Samsung S21 • Back glass</span>
+            <img src="images/Fixedbackiphone16promax.jpg" alt="After: replaced back glass"/>
+            <img class="before" src="images/Brokenbackiphone16promax.jpg" alt="Before: broken back glass"/>
+            <span class="caption">iPhone 16 Pro Max • Back glass</span>
           </div>
           <input class="slider" type="range" min="0" max="100" value="50" aria-label="Before/after slider for Samsung S21"/>
         </div>
